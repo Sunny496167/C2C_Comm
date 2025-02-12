@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Dependency directories
+Frontend/node_modules/
+Backend/node_modules/
+Admin/node_modules/
+
+# Build directories
+Frontend/build/
+Backend/build/
+Admin/build/
+
+# Environment variables
+Frontend/.env
+Backend/.env
+Admin/.env
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
