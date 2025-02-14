@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Hero from "./Components/hero";
 import Dashboard from "./Components/dashboard";
 import Navigation from "./Components/navigation";
+import Messages from "./Components/messages";
+import Forums from "./Components/forums";
 
 
 function App() {
@@ -19,9 +21,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/messages" element={<Messages />} />
+        <Route path="/messages" element={<Messages />} />
         <Route path="/forums" element={<Forums />} />
-        <Route path="/signin" element={<SignIn />} /> */}
+        {/* <Route path="/signin" element={<SignIn />} /> */}
       </Routes>
     </Router>
   );
