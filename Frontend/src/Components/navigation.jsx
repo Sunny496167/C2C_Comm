@@ -43,26 +43,27 @@ function Navigation({ darkMode, toggleDarkMode }) {
             >
               Forums
             </Link>
-            {/* Sign-In Button */}
+            {/* Event */}
+            <Link 
+                  to="/events" 
+                  className={`text-sm hover:text-gray-300 ${
+                    location.pathname === '/events' 
+                      ? 'text-blue-500' 
+                      : darkMode ? 'text-gray-300' : ""
+                  }`}
+                >
+                  <span className="flex items-center gap-1 ">
+                    <Calendar className="w-4 h-4 " />
+                    Events
+                  </span>
+                </Link>
+            {/* Sign In */}
             <Link
               to="/signin"
               className="text-sm bg-white text-black px-4 py-1.5 rounded-md hover:bg-gray-100"
             >
               Sign In
             </Link>
-            <Link 
-                  to="/events" 
-                  className={`text-sm hover:text-blue-500 ${
-                    location.pathname === '/events' 
-                      ? 'text-blue-500' 
-                      : darkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}
-                >
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    Events
-                  </span>
-                </Link>
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}

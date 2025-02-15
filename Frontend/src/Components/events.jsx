@@ -11,7 +11,7 @@ const upcomingEvents = [
     type: "Conference",
     attendees: 250,
     image:
-      "https://images.unsplash.com/photo-1591115765373-5207764f72e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "https://aiexpert.pk/wp-content/uploads/2024/01/Future-of-AI-in-education.png",
   },
   {
     id: 2,
@@ -51,10 +51,10 @@ function Events({ darkMode }) {
   });
 
   return (
-    <main className={`pt-16 min-h-screen ${darkMode ? "bg-black" : "bg-gray-50"} transition-colors duration-200`}>
+    <main className={`pt-16 min-h-screen bg-black  transition-colors duration-200`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className={`text-2xl font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}>Events</h1>
+          <h1 className={`text-2xl font-semibold text-white}`}>Events</h1>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2">
             <Plus className="w-5 h-5" />
             Create Event
@@ -70,9 +70,8 @@ function Events({ darkMode }) {
               placeholder="Search events..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full pl-10 pr-4 py-2 rounded-md ${
-                darkMode ? "bg-gray-800 text-white border-gray-700" : "bg-white text-gray-900 border-gray-200"
-              } border focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors`}
+              className={`w-full pl-10 pr-4 py-2 rounded-md bg-gray-800 text-white border-gray-700
+               border focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors`}
             />
           </div>
           <div className="relative">
