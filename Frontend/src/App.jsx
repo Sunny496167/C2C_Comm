@@ -5,6 +5,8 @@ import Dashboard from "./Components/dashboard";
 import Navigation from "./Components/navigation";
 import Messages from "./Components/messages";
 import Forums from "./Components/forums";
+import SignIn from "./Components/SignIn";
+
 
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/forums" element={<Forums />} />
-        {/* <Route path="/signin" element={<SignIn />} /> */}
+        <Route path="/SignIn" element={<SignIn />} />
       </Routes>
     </Router>
   );
