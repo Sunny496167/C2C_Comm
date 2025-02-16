@@ -1,4 +1,3 @@
-import React from 'react';
 import { MessageSquare, TrendingUp, Users, Bookmark, ArrowUpRight } from 'lucide-react';
 
 const categories = [
