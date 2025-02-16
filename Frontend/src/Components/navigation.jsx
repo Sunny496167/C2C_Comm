@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Sun } from "lucide-react";
+import { Calendar, Sun } from "lucide-react";
 import PropTypes from 'prop-types';
 
 function Navigation({ darkMode, toggleDarkMode }) {
@@ -43,7 +43,21 @@ function Navigation({ darkMode, toggleDarkMode }) {
             >
               Forums
             </Link>
-            {/* Sign-In Button */}
+            {/* Event */}
+            <Link 
+                  to="/events" 
+                  className={`text-sm hover:text-gray-300 ${
+                    location.pathname === '/events' 
+                      ? 'text-blue-500' 
+                      : darkMode ? 'text-gray-300' : ""
+                  }`}
+                >
+                  <span className="flex items-center gap-1 ">
+                    <Calendar className="w-4 h-4 " />
+                    Events
+                  </span>
+                </Link>
+            {/* Sign In */}
             <Link
               to="/signin"
               className="text-sm bg-white text-black px-4 py-1.5 rounded-md hover:bg-gray-100"
