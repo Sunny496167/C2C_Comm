@@ -56,8 +56,14 @@ function Events() {
   };
 
   const handleCreateEvent = () => {
+    const today = new Date();
+    const selectedDate = new Date(newEvent.date);
     if (!newEvent.title || !newEvent.date || !newEvent.time || !newEvent.location || newEvent.maxAttendees <= 0) {
       alert("Please fill in all required fields and ensure max attendees is greater than 0.");
+      return;
+    }
+    if (selectedDate < today.setHours(0, 0, 0, 0)) {
+      alert("Event date cannot be in the past!");
       return;
     }
     const eventToAdd = { id: Date.now(), ...newEvent, attendees: 0 };
@@ -160,8 +166,12 @@ function Events() {
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
             <h2 className="text-xl font-semibold mb-4">Create Event</h2>
             <input type="text" placeholder="Title" className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, title: e.target.value})} />
-            <input type="date" className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, date: e.target.value})} />
-            <input type="time" className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, time: e.target.value})} />
+            <input 
+            type="date" 
+            className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, date: e.target.value})} />
+            <input type="time" className="w-full p-2 border rounded mb-2" 
+             min={new Date().toISOString().split("T")[0]}
+            onChange={(e) => setNewEvent({...newEvent, time: e.target.value})} />
             <input type="text" placeholder="Location" className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, location: e.target.value})} />
             <input type="number" placeholder="Max Attendees" min="1" className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, maxAttendees: parseInt(e.target.value)})} />
             <select className="w-full p-2 border rounded mb-2" onChange={(e) => setNewEvent({...newEvent, type: e.target.value})}>
