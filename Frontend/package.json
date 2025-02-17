@@ -12,7 +12,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
     "axios": "^1.7.9",
+<<<<<<< HEAD
     "framer-motion": "^12.4.3",
+=======
+>>>>>>> 36e91fb4969f30836849c376cd42cba6352e10ce
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
