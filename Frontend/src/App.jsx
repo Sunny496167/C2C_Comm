@@ -10,6 +10,8 @@ import Footer from "./Components/footer";
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
+import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
+import EmailVerificationPage from "./Pages/EmailVerificationPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -29,10 +31,10 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/forums" element={<Forums />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/forget-password" element={<SignUpPage />} />
-          <Route path="/very-email" element={<LoginPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/verify-email" element={<EmailVerificationPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
         </Routes>
       </Router>

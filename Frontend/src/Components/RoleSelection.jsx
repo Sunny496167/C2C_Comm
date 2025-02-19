@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 const RoleSelection = ({ onRoleSelect }) => {
   return (
-    <div className="bg-gray-900 rounded-xl shadow-lg p-8 space-y-6">
+    <div className='relative min-h-screen bg-black text-white flex items-center justify-center'>
+      <div className="bg-gray-900 rounded-xl shadow-lg p-8 space-y-6">
       <h2 className="text-2xl font-bold text-center text-white mb-8">
         Choose Your Role
       </h2>
@@ -24,6 +25,7 @@ const RoleSelection = ({ onRoleSelect }) => {
           <span className="font-medium text-gray-800">College</span>
         </button>
       </div>
+    </div>
     </div>
   );
 };

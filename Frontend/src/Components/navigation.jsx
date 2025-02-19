@@ -59,7 +59,7 @@ function Navigation({ darkMode, toggleDarkMode }) {
                 </Link>
             {/* Sign In */}
             <Link
-              to="/signin"
+              to="/login"
               className="text-sm bg-white text-black px-4 py-1.5 rounded-md hover:bg-gray-100"
             >
               Sign In
