@@ -8,10 +8,11 @@ import Forums from "./Components/forums";
 import Events from "./Components/events";
 import Footer from "./Components/footer";
 import SignUpPage from "./Pages/SignUpPage";
-import LoginPage from "./Pages/LoginPage";
+//import LoginPage from "./Pages/LoginPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
 import EmailVerificationPage from "./Pages/EmailVerificationPage";
+import RoleBasedLogin from "./Pages/LoginPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,7 +32,7 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/forums" element={<Forums />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<RoleBasedLogin />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/verify-email" element={<EmailVerificationPage />} />
