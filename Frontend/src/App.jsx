@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Hero from "./Components/hero";
 import Dashboard from "./Components/dashboard";
 import Navigation from "./Components/navigation";
@@ -8,35 +8,61 @@ import Forums from "./Components/forums";
 import Events from "./Components/events";
 import Footer from "./Components/footer";
 import SignUpPage from "./Pages/SignUpPage";
-//import LoginPage from "./Pages/LoginPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
 import EmailVerificationPage from "./Pages/EmailVerificationPage";
 import RoleBasedLogin from "./Pages/LoginPage";
 
+// ProtectedRoute Component
+const ProtectedRoute = ({ isAuthenticated }) => {
+  // If not authenticated, redirect to login page
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // If authenticated, render the child routes
+  return <Outlet />;
+};
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Simulate authentication state
 
+  
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.body.classList.toggle("dark", !darkMode);
   };
 
+  // Simulate login and logout functions
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
     <div>
       <Router>
-        <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} isAuthenticated={isAuthenticated} onLogout={handleLogout} />
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Hero />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/forums" element={<Forums />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/login" element={<RoleBasedLogin />} />
+          <Route path="/login" element={<RoleBasedLogin onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/verify-email" element={<EmailVerificationPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
+
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/forums" element={<Forums />} />
+            <Route path="/events" element={<Events />} />
+          </Route>
         </Routes>
       </Router>
       <Footer />

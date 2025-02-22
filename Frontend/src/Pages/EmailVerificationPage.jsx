@@ -48,7 +48,7 @@ const EmailVerificationPage = () => {
 		const verificationCode = code.join("");
 		try {
 			await verifyEmail(verificationCode);
-			navigate("/");
+			navigate("/login");
 			toast.success("Email verified successfully");
 		} catch (error) {
 			console.log(error);
@@ -98,7 +98,7 @@ const EmailVerificationPage = () => {
 						whileTap={{ scale: 0.95 }}
 						type='submit'
 						disabled={isLoading || code.some((digit) => !digit)}
-						className='w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 disabled:opacity-50'
+						className='w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:opacity-50'
 					>
 						{isLoading ? "Verifying..." : "Verify Email"}
 					</motion.button>

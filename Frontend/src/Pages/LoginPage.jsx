@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Building2, Mail, Lock, Loader } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Input from "../Components/Input";
 import { useAuthStore } from "../store/authStore";
 import PropTypes from 'prop-types';
@@ -50,7 +50,8 @@ const LoginPage = ({ role }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await login(email, password, role); // Pass the role to the login function
+    await login(email, password, role);
+	Navigate('/dashboard');
   };
 
   return (
